@@ -1,0 +1,69 @@
+background yes
+use_xft yes
+xftfont HandelGotD:size=8
+xftalpha 0.5
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_type desktop
+own_window_argb_visual yes
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 200 5
+maximum_width 300
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_color 000000
+default_shade_color red
+default_outline_color green
+alignment top_left
+gap_x 15
+gap_y 5
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+
+TEXT
+# ${alignc}${font Arial Black:size:30}${time %H:%M}${font}
+# ${alignc}${Time %A %m %d %Y}
+Uptime:$alignr$uptime
+
+CPU0 $alignr ${cpu cpu0}%
+${cpugraph cpu0}
+CPU1 $alignr ${cpu cpu1}%
+${cpugraph cpu1}
+CPU2 $alignr ${cpu cpu2}%
+${cpugraph cpu2}
+CPU3 $alignr ${cpu cpu3}%
+${cpugraph cpu3}
+
+RAM $alignc $mem / $memmax $alignr $memperc%
+$membar
+SWAP $alignc $swap / $swapmax $alignr $swapperc%
+${swapbar}
+ROOT $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
+${fs_bar /}
+
+# ARCHIVE $alignc ${fs_used /media/ilir/ARCHIVE} / ${fs_size /media/ilir/ARCHIVE} $alignr ${fs_free_perc /media/ilir/ARCHIVE}%
+# ${fs_bar /media/ilir/ARCHIVE}
+ETH0
+Inbound $alignr ${downspeed eth0} kb/s
+${downspeedgraph eth0}
+Outbound $alignr ${upspeed eth0} kb/s
+${upspeedgraph eth0}
+Upload: ${alignr}${totalup eth0}
+Download: ${alignr}${totaldown eth0}
+Local IP: ${alignr}${addr eth0}
+
+WLAN0
+Inbound $alignr ${downspeed wlan0} kb/s
+${downspeedgraph wlan0}
+Outbound $alignr ${upspeed wlan0} kb/s
+${upspeedgraph wlan0}
+Upload: ${alignr}${totalup wlan0}
+Download: ${alignr}${totaldown wlan0}
+Local IP: ${alignr}${addr wlan0}
