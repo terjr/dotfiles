@@ -44,6 +44,10 @@ nmap <c-w>k :res -20<cr>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*.pyc
 
 nmap <c-t> :tabnew<cr>
+nmap <F12> :make!<cr>
+
+set hlsearch
+highlight Search ctermbg=LightBlue
 
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
