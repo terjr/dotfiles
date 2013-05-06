@@ -1,4 +1,5 @@
 import Control.Monad(liftM2)
+import Graphics.X11.ExtraTypes.XF86
 import System.IO
 
 import XMonad
@@ -31,6 +32,6 @@ main = do
          , workspaces = myWorkspaces
          }
          `additionalKeys`
-         [((0, 0x1008ff11), spawn "amixer set Master 2-"),
-          ((0, 0x1008ff13), spawn "amixer set Master 2+")]
+         [((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 2-"),
+          ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 2+")]
 
