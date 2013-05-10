@@ -20,9 +20,11 @@ Config {
         Run Swap ["-t","Swap: <usedratio>%","-H","1024","-L","512","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
         Run Network "wlan0" ["-t","Net: <rx>, <tx>","-H","200","-L","10","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
         Run Date "%a %b %_d %H:%M" "date" 10,
+        Run Com "uname" ["-s", "-r"] "" 0,
         Run StdinReader
+
     ],
     sepChar = "%",
     alignSep = "}{",
-    template = "%StdinReader% }{ %multicpu%   %memory%   %swap%   %wlan0%   <fc=#FFFFCC>%date%</fc>"
+    template = "%StdinReader% }{   %uname%   %multicpu%   %memory%   %swap%   %wlan0%   <fc=#FFFFCC>%date%</fc>"
 }

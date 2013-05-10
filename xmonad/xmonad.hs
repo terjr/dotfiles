@@ -9,13 +9,14 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.StackSet(greedyView,shift)
 
-myWorkspaces = ["1:web", "2:dev", "3:hck", "4:uni", "5:aud", "6", "7", "8", "9"]
+myWorkspaces = ["1:web", "2:dev", "3:irc", "4:uni", "5:aud"] ++ map show [6..9]
 
 myManageHook = composeAll
-    [ className =? "Opera" --> viewShift "1:web"
-    , manageDocks
-    ]
-    where viewShift = doF . liftM2 (.) greedyView shift
+     [ className =? "Opera" --> viewShift "1:web"
+     , className =? "Spotify" --> viewShift "5:aud"
+     , manageDocks
+     ]
+     where viewShift = doF . liftM2 (.) greedyView shift
 
 
 main = do
@@ -32,6 +33,8 @@ main = do
          , workspaces = myWorkspaces
          }
          `additionalKeys`
-         [((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 2-"),
-          ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 2+")]
+         [((0, xF86XK_MonBrightnessUp),   spawn "xbacklight -inc 10"),
+          ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 10"),
+          ((0, xF86XK_AudioLowerVolume),  spawn "amixer set Master 2-"),
+          ((0, xF86XK_AudioRaiseVolume),  spawn "amixer set Master 2+")]
 
