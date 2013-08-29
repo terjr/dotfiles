@@ -6,6 +6,8 @@ alias sx="startx"
 alias xm="xinit ~/.xinitrc-xmonad"
 alias v="vim"
 
+HISTSIZE=10000
+
 # Colored man pages with less
 man() {
     env LESS_TERMCAP_mb=$(printf "\e[1;31m") \

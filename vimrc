@@ -35,6 +35,7 @@ map <Right> :echo 'you suck!'<cr>
 map <Up> :echo 'this is why you fail'<cr>
 map <Down> :echo 'nooooo!'<cr>
 
+" resize
 nmap <c-w>l :vertical res +20<cr>
 nmap <c-w>h :vertical res -20<cr>
 nmap <c-w>j :res +20<cr>
@@ -42,12 +43,13 @@ nmap <c-w>k :res -20<cr>
 
 " ignore patterns for CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*.pyc
-
-nmap <c-t> :tabnew<cr>
 nmap <F12> :make!<cr>
 
 set hlsearch
 highlight Search ctermbg=LightBlue
 
+" trailing whitespace is evil
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
+
+au BufRead,BufNewFile *.txt,*.tex set tw=80 nocindent
