@@ -53,3 +53,5 @@ highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 
 au BufRead,BufNewFile *.txt,*.tex set tw=80 nocindent
+
+set noswapfile
