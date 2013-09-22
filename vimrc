@@ -43,7 +43,10 @@ nmap <c-w>k :res -20<cr>
 
 " ignore patterns for CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*.pyc
+
 nmap <F12> :make!<cr>
+nmap J 5j<cr>
+nmap K 5k<cr>
 
 set hlsearch
 highlight Search ctermbg=LightBlue
