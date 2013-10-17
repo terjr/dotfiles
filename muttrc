@@ -2,9 +2,9 @@
 
 # Change the following six lines to match your Gmail account details
 set imap_user = "terje.runde@gmail.com"
-set imap_pass = `gpg --decrypt ~/.mutt/fluffy_bunnies 2>/dev/null`
+set imap_pass = `gpg --decrypt -q ~/.mutt/fluffy_bunnies`
 set smtp_url = "smtp://terje.runde@smtp.gmail.com:587/"
-set smtp_pass = `gpg --decrypt ~/.mutt/fluffy_bunnies 2>/dev/null`
+set smtp_pass = `gpg --decrypt -q ~/.mutt/fluffy_bunnies`
 set from = "terje.runde@gmail.com"
 set realname = "Terje Runde"
 
