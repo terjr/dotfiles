@@ -21,8 +21,10 @@ myManageHook = composeAll
      ]
      where viewShift = doF . liftM2 (.) greedyView shift
 
+myFocusedBorderColor = "green"
+
 main = do
-    xmproc <- spawnPipe "/usr/bin/xmobar /home/terje/.xmonad/xmobarrc"
+    xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobarrc"
     xmonad $ defaultConfig
          { manageHook   = myManageHook <+> manageHook defaultConfig
          , layoutHook   = avoidStruts   $  layoutHook defaultConfig
@@ -35,6 +37,7 @@ main = do
                               }
          , terminal     = "urxvt"
          , workspaces   = myWorkspaces
+         , focusedBorderColor = myFocusedBorderColor
          }
          `additionalKeys`
          [((0, xF86XK_MonBrightnessUp),   spawn "xbacklight -inc 10"),
