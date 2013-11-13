@@ -5,5 +5,3 @@
 	ui = always
 [push]
 	default = simple
-[format]
-	pretty = oneline
