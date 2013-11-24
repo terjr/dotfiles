@@ -4,6 +4,7 @@ import Graphics.X11.ExtraTypes.XF86
 import System.IO
 
 import XMonad
+import XMonad.Actions.NoBorders
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
@@ -38,6 +39,7 @@ main = do
          , terminal     = "urxvt"
          , workspaces   = myWorkspaces
          , focusedBorderColor = myFocusedBorderColor
+         , normalBorderColor = "black"
          }
          `additionalKeys`
          [((0, xF86XK_MonBrightnessUp),   spawn "xbacklight -inc 10"),
@@ -45,6 +47,7 @@ main = do
           ((0, xF86XK_AudioLowerVolume),  spawn "amixer set Master 2-"),
           ((0, xF86XK_AudioRaiseVolume),  spawn "amixer set Master 2+"),
           ((0, xF86XK_Launch1),           spawn "ssh root halt"),
-          ((myModMask, xK_p),             spawn "dmenu_run -i -p '>' -nb black -nf white -sb green -sf black")
+          ((myModMask, xK_p),             spawn "dmenu_run -i -p '>' -nb black -nf white -sb green -sf black"),
+          ((myModMask, xK_b),             sendMessage ToggleStruts >> withFocused toggleBorder)
           ]
 
