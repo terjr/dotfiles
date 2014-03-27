@@ -27,7 +27,7 @@ $curl->setopt(CURLOPT_URL, $gmail_url);
 $curl->setopt(CURLOPT_USERPWD, "$user:$pw");
 
 $curl->setopt(CURLOPT_NOSIGNAL, 1);
-$curl->setopt(CURLOPT_TIMEOUT_MS, 1000);
+$curl->setopt(CURLOPT_TIMEOUT_MS, 1500);
 $curl->setopt(CURLOPT_CONNECTTIMEOUT, 1);
 
 my @ips = grep { $_->is_running

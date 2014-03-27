@@ -1,0 +1,6 @@
+setxkbmap no dvorak
+xset r rate 300 50
+xinput set-prop `xinput --list | perl -n -e '/TouchPad\\s+id=([0-9]+)/ && print "$1"'` 'Device Enabled' 0
+xrdb ~/.Xdefaults.xmonad
+urxvtd -q -o -f
+exec xmonad

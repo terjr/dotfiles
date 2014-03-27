@@ -6,7 +6,7 @@ syntax on
 set nu
 set ruler
 set wildmenu
-colorscheme black_angus
+colorscheme synic
 set mouse=a
 set scrolloff=3
 
@@ -41,12 +41,16 @@ nmap <c-w>h :vertical res -20<cr>
 nmap <c-w>j :res +20<cr>
 nmap <c-w>k :res -20<cr>
 
+nmap <silent><c-n> :silent noh<cr>
+nmap <silent><c-a> xp
+
 " ignore patterns for CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*.pyc
 
 nmap <F12> :make!<cr>
-nmap J 5j<cr>
-nmap K 5k<cr>
+
+nmap J 4j<cr>
+nmap K 6k<cr>
 
 set hlsearch
 highlight Search ctermbg=LightBlue
@@ -58,3 +62,5 @@ match WhitespaceEOL /\s\+$/
 au BufRead,BufNewFile *.txt,*.tex set tw=80 nocindent
 
 set noswapfile
+
+set tags=./tags,../tags
